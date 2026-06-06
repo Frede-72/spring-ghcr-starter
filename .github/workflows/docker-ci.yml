@@ -20,7 +20,7 @@ jobs:
         run: docker build -t app:test .
 
       - name: Run docker container
-        Run: | 
+        run: | 
           docker compose up -d
           sleep 20
           curl -f http://localhost:8090/actuator/health || exit 1
