@@ -12,16 +12,16 @@ jobs:
     runs-on: ubuntu-latest
     permissions:
       contents: read
-      steps:
-        - name: Checkout code
-          uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd
 
-        - name: Build docker image
-          run: docker build -t app:test .
+      - name: Build docker image
+        run: docker build -t app:test .
 
-        - name: Run docker container
-          Run: | 
-            docker compose up -d
-            sleep 20
-            curl -f http://localhost:8090/actuator/health || exit 1
-            docker compose down
+      - name: Run docker container
+        Run: | 
+          docker compose up -d
+          sleep 20
+          curl -f http://localhost:8090/actuator/health || exit 1
+          docker compose down
