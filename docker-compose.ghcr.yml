@@ -1,0 +1,5 @@
+services:
+  app:
+    image: ghcr.io/frede-72/spring-ghcr-starter:latest
+    ports:
+      - "8090:8080"
